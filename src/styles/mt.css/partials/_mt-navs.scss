@@ -1,0 +1,108 @@
+/* MINITHEMATIQ: NAVS                      */
+
+.mt-nav {
+    width:      100%;
+    font-size:  0;
+    text-align: center;
+
+    ul {
+        list-style: none;
+        display:    inline-block;
+        padding:    0;
+        margin:     0;
+
+        li {
+            position: relative;
+            float:    left;
+
+            background-color:    $mt-color-nav-bg;
+            border:              1px solid $mt-color-nav-border;
+            border-bottom-width: 2px;
+            margin:              -1px 0 0 -1px;
+
+            &.mt-nav-toggle { display: none; }
+
+            a {
+                display:         block;
+                text-decoration: none;
+                color:           $mt-color-nav-fg;
+                padding:         $mt-spacer/2 $mt-spacer;
+                transition:      background-color ease $mt-transition-time-ui;
+
+                &:hover {
+                    color:            $mt-color-nav-fg-hover;
+                    background-color: $mt-color-nav-bg-hover;
+                }
+
+                &:active,
+                &.mt-active {
+                    color:            $mt-color-nav-fg-active;
+                    background-color: $mt-color-nav-bg-active;
+                }
+            }
+
+            &.mt-active > a {
+                color:            $mt-color-nav-fg-active;
+                background-color: $mt-color-nav-bg-active;
+            }
+
+            & > ul {
+                display:    none;
+                position:   absolute;
+                min-width:  100%;
+                left:       -1px;
+                border:     1px solid $mt-color-nav-border;
+                box-shadow: $mt-shadow-size-h $mt-shadow-size-v $mt-shadow-blur $mt-color-shadow;
+                z-index:    $mt-z-index-anchors + 1;
+
+                li {
+                    float: none;
+                    border: none;
+                    margin: 0;
+
+                    a {
+                        padding:     $mt-spacer/4 $mt-spacer/2;
+                        &:hover { color: $mt-color-nav-fg-hover; }
+                    }
+
+                    &.mt-hr {
+                        border-top: 1px solid $mt-color-nav-border;
+                        &:after { display: none ;}
+                    }
+
+                    &.mt-hr-subtle { border-top: 1px dotted $mt-color-nav-border; }
+                }
+            }
+
+            &:hover > ul {
+                display: block;
+                a { color: $mt-color-nav-fg-open; }
+            }
+        }
+
+    }
+}
+
+// min resolutions (mobi)
+@media screen and ( max-width: $mt-media-min ) {
+    .mt-nav {
+        text-align: left;
+
+        ul {
+            width: 50%;
+
+            li {
+                float: none;
+                &.mt-nav-toggle { display: block; }
+
+                & > ul {
+                    top: 0%;
+                    left: 95%;
+                    li {
+
+                    }
+                }
+            }
+        }
+    }
+}

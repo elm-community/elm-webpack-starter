@@ -1,0 +1,313 @@
+/* MINITHEMATIQ: DECORATORS                */
+
+// -- FRAMES & WELLS ---
+
+.mt-border,
+.mt-frame, .mt-frame-p,
+.mt-pill, .mt-pill-p, .mt-pill-left, .mt-pill-right,
+.mt-well, .mt-well-p, .mt-well-left, .mt-well-right {
+    border-radius: $mt-radius-frames;
+}
+
+.mt-border,
+.mt-frame, .mt-frame-p,
+.mt-well, .mt-well-p, .mt-well-left, .mt-well-right {
+    border: 1px solid $mt-color-fg-subtle;
+}
+
+.mt-pill, .mt-pill-p, .mt-pill-left, .mt-pill-right, {
+    border: 1px solid $mt-color-fg-subtle;
+}
+
+.mt-frame,
+.mt-pill, .mt-pill-left, .mt-pill-right,
+.mt-well, .mt-well-left, .mt-well-right {
+    display: inline-block;
+}
+
+.mt-frame,
+.mt-pill, .mt-pill-left, .mt-pill-right,
+.mt-well, .mt-well-left, .mt-well-right {
+    padding: $mt-spacer/4 $mt-spacer/2;
+}
+
+.mt-frame-p,
+.mt-pill-p,
+.mt-well-p {
+    padding: 0 $mt-spacer/3;
+}
+
+.mt-pill, .mt-pill-p, .mt-pill-left, .mt-pill-right {
+    color:            $mt-color-pill-fg;
+    background-color: $mt-color-fg-subtle;
+}
+
+.mt-well, .mt-well-p, .mt-well-left, .mt-well-right {
+    background-color: $mt-color-bg-subtle;
+}
+
+.mt-pill-left,
+.mt-well-left  {
+    margin:                     (-$mt-spacer/4) $mt-spacer/2 (-$mt-spacer/4) (-$mt-spacer/2);
+    border:                     none;
+    border-top-right-radius:    0;
+    border-bottom-right-radius: 0;
+}
+
+// .mt-pill-left { border-right: 1px solid $mt-color-bg-subtle; }
+.mt-well-left { border-right: 1px solid $mt-color-fg-subtle; }
+
+.mt-pill-right,
+.mt-well-right  {
+    margin:                    (-$mt-spacer/4) (-$mt-spacer/2) (-$mt-spacer/4) $mt-spacer/2;
+    border:                    none;
+    border-top-left-radius:    0;
+    border-bottom-left-radius: 0;
+}
+
+.mt-pill-right { border-left: 1px solid $mt-color-bg-subtle; }
+.mt-well-right { border-left: 1px solid $mt-color-fg-subtle; }
+
+
+// --- STATUS COLORS ---
+
+.mt-alert {
+    color:            $mt-color-alert-fg;
+    background-color: $mt-color-alert-bg;
+
+    &.mt-well, &.mt-well-p, &.mt-well-right, &.mt-well-left {
+        color:            $mt-color-alert-subtle-fg;
+        border-color:     $mt-color-alert-subtle-fg;
+        background-color: $mt-color-alert-subtle-bg;
+    }
+
+    &.mt-pill { border-color: $mt-color-alert-bg; }
+
+    &.mt-frame {
+        color:            $mt-color-alert-subtle-fg;
+        border-color:     $mt-color-alert-subtle-fg;
+        background-color: transparent;
+
+        .mt-well-left, .mt-well-right {
+            color: $mt-color-alert-subtle-fg; background-color: $mt-color-alert-subtle-bg; border-color: $mt-color-alert-subtle-fg;
+        }
+        .mt-pill-left, .mt-pill-right {
+            color: $mt-color-alert-fg; background-color: $mt-color-alert-bg; border-color: $mt-color-alert-bg;
+        }
+    }
+}
+
+.mt-alert-subtle {
+    color:            $mt-color-alert-subtle-fg;
+    background-color: $mt-color-alert-subtle-bg;
+}
+
+.mt-success {
+    color:            $mt-color-success-fg;
+    background-color: $mt-color-success-bg;
+
+    &.mt-well, &.mt-well-p, &.mt-well-right, &.mt-well-left {
+        color:            $mt-color-success-subtle-fg;
+        border-color:     $mt-color-success-subtle-fg;
+        background-color: $mt-color-success-subtle-bg;
+    }
+
+    &.mt-pill { border-color: $mt-color-success-bg; }
+
+    &.mt-frame {
+        color:            $mt-color-success-subtle-fg;
+        border-color:     $mt-color-success-subtle-fg;
+        background-color: transparent;
+
+        .mt-well-left, .mt-well-right {
+            color: $mt-color-success-subtle-fg; background-color: $mt-color-success-subtle-bg; border-color: $mt-color-success-subtle-fg;
+        }
+        .mt-pill-left, .mt-pill-right {
+            color: $mt-color-success-fg; background-color: $mt-color-success-bg; border-color: $mt-color-success-bg;
+        }
+    }
+}
+
+.mt-success-subtle {
+    color:            $mt-color-success-subtle-fg;
+    background-color: $mt-color-success-subtle-bg;
+}
+
+.mt-error {
+    color:            $mt-color-error-fg;
+    background-color: $mt-color-error-bg;
+
+    &.mt-well, &.mt-well-p, &.mt-well-right, &.mt-well-left {
+        color:            $mt-color-error-subtle-fg;
+        border-color:     $mt-color-error-subtle-fg;
+        background-color: $mt-color-error-subtle-bg;
+    }
+
+    &.mt-pill { border-color: $mt-color-error-bg; }
+
+    &.mt-frame {
+        color:            $mt-color-error-subtle-fg;
+        border-color:     $mt-color-error-subtle-fg;
+        background-color: transparent;
+
+        .mt-well-left, .mt-well-right {
+            color: $mt-color-error-subtle-fg; background-color: $mt-color-error-subtle-bg; border-color: $mt-color-error-subtle-fg;
+        }
+        .mt-pill-left, .mt-pill-right {
+            color: $mt-color-error-fg; background-color: $mt-color-error-bg; border-color: $mt-color-error-bg;
+        }
+    }
+}
+
+.mt-error-subtle {
+    color:            $mt-color-error-subtle-fg;
+    background-color: $mt-color-error-subtle-bg;
+}
+
+
+// --- BARS & DIALOGS ---
+
+.mt-bar {
+    font:             $mt-font-labels;
+    color:            $mt-color-pill-fg;
+    background-color: $mt-color-fg-subtle;
+    padding:          $mt-spacer/2 $mt-gutter;
+}
+
+.mt-bar-subtle {
+    color:            $mt-color-fg-subtle;
+    background-color: $mt-color-bg-subtle;
+    padding:          $mt-spacer/4 $mt-gutter;
+}
+
+.mt-frame {
+    .mt-bar,
+    .mt-bar-subtle {
+        margin: -$mt-spacer/6 -$mt-spacer/2;
+
+    }
+}
+
+.mt-alert .mt-bar, .mt-bar.mt-alert {
+    color: $mt-color-alert-fg;
+    background-color: $mt-color-alert-bg;
+}
+
+.mt-alert .mt-bar-subtle, .mt-bar-subtle.mt-alert {
+    color: $mt-color-alert-subtle-fg;
+    background-color: $mt-color-alert-subtle-bg;
+}
+
+.mt-success .mt-bar, .mt-bar.mt-success {
+    color: $mt-color-success-fg;
+    background-color: $mt-color-success-bg;
+}
+
+.mt-success .mt-bar-subtle, .mt-bar-subtle.mt-success {
+    color: $mt-color-success-subtle-fg;
+    background-color: $mt-color-success-subtle-bg;
+}
+
+.mt-error .mt-bar, .mt-bar.mt-error {
+    color: $mt-color-error-fg;
+    background-color: $mt-color-error-bg;
+}
+
+.mt-error .mt-bar-subtle, .mt-bar-subtle.mt-error {
+    color: $mt-color-error-subtle-fg;
+    background-color: $mt-color-error-subtle-bg;
+}
+
+.mt-dialog {
+    border-radius: $mt-radius-frames;
+    border:        1px solid $mt-color-fg-subtle;
+    .mt-bar        { border-top-left-radius: $mt-radius-frames;    border-top-right-radius: $mt-radius-frames }
+    .mt-bar-subtle { border-bottom-left-radius: $mt-radius-frames; border-bottom-right-radius: $mt-radius-frames; }
+    &.mt-alert, &.mt-success, &.mt-error { color: $mt-color-fg; background-color: $mt-color-bg; }
+    &.mt-alert     { border-color: $mt-color-alert-bg; }
+    &.mt-success   { border-color: $mt-color-success-bg; }
+    &.mt-error     { border-color: $mt-color-error-bg; }
+}
+
+
+// -- TABLES ---
+
+.mt-table {
+    width: 100%;
+    border: 1px solid $mt-color-fg-subtle;
+
+    th,
+    .mt-th {
+        font-family:      $mt-font-labels;
+        font-weight:      $mt-font-weight-normal;
+        color:            $mt-color-bg;
+        background-color: $mt-color-fg-subtle;
+        border-left:      1px solid $mt-color-bg-subtle;
+        padding:          $mt-spacer/2;
+        &:first-of-type   { border: none; }
+    }
+
+    td, .mt-td {
+        padding: $mt-spacer/4 $mt-spacer/2;
+    }
+
+    tr:nth-child( even ) td,
+    .mt-tr:nth-child( even ) .mt-td {
+        background-color: $mt-color-bg-subtle;
+        border-left:      1px solid $mt-color-fg-subtle;
+        &:first-of-type   { border: none; }
+    }
+
+    tr:nth-child( odd ) td,
+    .mt-tr:nth-child( odd ) .mt-td {
+        border-left: 1px solid $mt-color-fg-subtle;
+        &:first-of-type { border: none; }
+    }
+}
+
+
+// -- HORIZONTAL RULES ---
+
+.mt-hr,
+.mt-hr-subtle {
+    position: relative;
+    margin: $mt-spacer * 3 0 $mt-spacer * 2;
+}
+
+.mt-hr,
+.mt-border-top {
+    border-top: 1px solid $mt-color-accent;
+}
+
+.mt-hr:after {
+    position:         absolute;
+    display:          block;
+    content:          '';
+    top:              0;
+    left:             0;
+    width:            20px;
+    height:           5px;
+    background-color: $mt-color-accent;
+}
+
+.mt-hr-subtle,
+.mt-border-top-subtle {
+    border-top: 1px dotted $mt-color-fg-subtle;
+}
+
+// --- SHADOWS ---
+
+.mt-shadow {
+    position: relative;
+
+    &:after {
+        position:   absolute;
+        left:       0;
+        bottom:     0;
+        content:    "";
+        display:    block;
+        width:      100%;
+        height:     $mt-shadow-size-v * 1.2;
+        box-shadow: $mt-shadow-size-h $mt-shadow-size-v $mt-shadow-blur $mt-color-shadow;
+    }
+}

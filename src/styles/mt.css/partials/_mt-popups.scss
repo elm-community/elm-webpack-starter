@@ -1,0 +1,55 @@
+/* MINITHEMATIQ: POPUPS                    */
+
+.mt-tip {
+    text-decoration: underline dotted;
+}
+
+// --- TIPS ---
+.mt-tips-popup {
+    color: $mt-color-popup-fg;
+    border: 1px solid $mt-color-popup-fg;
+    background-color: $mt-color-popup-bg;
+    padding: $mt-spacer;
+    text-align: center;
+    min-width: 120px;
+    max-width: 200px;
+    border-radius: $mt-radius-frames;
+    box-shadow: $mt-shadow-size-h $mt-shadow-size-v $mt-shadow-blur $mt-color-shadow;
+    z-index: $mt-z-index-anchors + 1;
+    @include transition( $mt-transition-time-ui );
+
+    .mt-tip-counter {
+        text-align: right;
+        font-size: $mt-font-size-sm;
+        // color: $mt-color-alert;
+        margin: -$mt-spacer/2 0 $mt-spacer;
+        padding-bottom: $mt-spacer/2;
+        border-bottom: 1px dotted $mt-color-popup-fg;
+    }
+
+    .mt-tip-title {
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .mt-tip-text {
+        text-align: left;
+        margin: $mt-spacer/2 0;
+    }
+
+    .mt-tip-button {
+        display: inline-block;
+        margin: $mt-spacer/2 0;
+    }
+
+    .mt-tip-exit-link {
+        display: block;
+        font-size: $mt-font-size-sm;
+    }
+
+    svg {
+        position: absolute;
+        path:first-child { fill: $mt-color-popup-bg; }  // arrow bg
+        path:nth-child( 2 ) { stroke: $mt-color-popup-fg; }    // arrow line
+    }
+}

@@ -1,0 +1,370 @@
+/* MINITHEMATIQ: FORMS                     */
+
+// buttons
+
+.mt-button            { font: $mt-font-buttons; }
+.mt-button-sm         { font: $mt-font-buttons-sm; }
+.mt-button-subtle     { font: $mt-font-buttons-subtle; }
+.mt-button-subtle-sm  { font: $mt-font-buttons-subtle-sm; }
+
+.mt-button, .mt-button-subtle       { @include button-padding; }
+.mt-button-sm, .mt-button-subtle-sm { @include button-sm-padding; }
+
+.mt-button, .mt-button-sm {
+    @include button;
+    color:            $mt-color-btn-fg;
+    background-color: $mt-color-btn-bg;
+    @include border-out( $mt-color-btn-border );
+
+    &:hover {
+        color:            $mt-color-btn-fg-hover;
+        background-color: $mt-color-btn-bg-hover;
+        border-color:     $mt-color-btn-border-hover;
+    }
+
+    &:active, &.mt-active {
+        color:            $mt-color-btn-fg-active;
+        background-color: $mt-color-btn-bg-active;
+        @include border-in( $mt-color-btn-border-active );
+    }
+}
+
+.mt-button-subtle, .mt-button-subtle-sm {
+    @include button;
+    color:            $mt-color-btn-subtle-fg;
+    background-color: $mt-color-btn-subtle-bg;
+    @include border-out( $mt-color-btn-subtle-border );
+
+    &:hover {
+        color:            $mt-color-btn-subtle-fg-hover;
+        background-color: $mt-color-btn-subtle-bg-hover;
+        border-color:     $mt-color-btn-subtle-border-hover;
+    }
+
+    &:active, &.mt-active {
+        color:            $mt-color-btn-subtle-fg-active;
+        background-color: $mt-color-btn-subtle-bg-active;
+        @include border-in( $mt-color-btn-subtle-border-active );
+    }
+}
+
+// .mt-palette-accent,
+// .mt-palette-flip {
+//     .mt-button-subtle,
+//     .mt-button-subtle-sm {
+//         color:            $mt-color-bg;
+//         border-color:     $mt-color-bg;
+//         background-color: transparent;
+//
+//         &:hover {
+//             border-color:     $mt-color-bg-subtle;
+//             background-color: rgba( $mt-color-bg, 0.2 );
+//         }
+//
+//         &:active, &.mt-active {
+//             background-color: $mt-color-bg;
+//         }
+//     }
+// }
+//
+// .mt-palette-accent {
+//     .mt-button-subtle,
+//     .mt-button-subtle-sm {
+//         &:active, &.mt-active { color: $mt-color-accent; }
+//     }
+// }
+//
+// .mt-palette-flip {
+//     .mt-button-subtle,
+//     .mt-button-subtle-sm {
+//         &:active, &.mt-active { color: $mt-color-fg; }
+//     }
+// }
+
+
+// typography
+
+// .mt-button, .mt-button-sm,
+// .mt-button-subtle, .mt-button-subtle-sm {
+//     font-family: $mt-font-labels;
+// }
+//
+// .mt-button,
+// .mt-button-subtle {
+//     @include button-sizing;
+// }
+//
+// .mt-button-sm,
+// .mt-button-subtle-sm {
+//     @include button-sm-sizing;
+// }
+
+.mt-input-text {
+    color: $mt-color-fields-fg;
+    font:  $mt-font-fields;
+}
+
+.mt-label,
+.mt-form label {
+    white-space: nowrap;
+}
+
+
+// form inputs
+
+.mt-form {
+    input,
+    select,
+    textarea {
+        padding:          $mt-spacer/2 $mt-gutter;
+        color:            $mt-color-fields-fg;
+        background-color: $mt-color-fields-bg;
+
+        @include border-in( $mt-color-fields-border );
+
+        &:focus {
+            outline-color: $mt-color-btn-bg;
+            outline-width: 2px;
+            outline-style: solid;
+        }
+
+        &[disabled],
+        &[readonly] {
+            // @include border-in( rgba( $mt-color-fields-border, 0.1 ) );
+            color: rgba( $mt-color-fields-fg, 0.5 );
+        }
+
+        &.mt-h1 { font-size: $mt-font-size-xxl; }
+        &.mt-h2 { font-size: $mt-font-size-xl; }
+        &.mt-h3 { font-size: $mt-font-size-lg; }
+        &.mt-h4 { font-size: $mt-font-size-md; }
+    }
+
+    input::placeholder { color: rgba( $mt-color-fields-fg, 0.25); }
+
+    select {
+        height: $mt-font-size-fields + $mt-spacer;
+    }
+
+    input[type='text'],
+    input[type='number'],
+    input[type='date'],
+    input[type='time'],
+    input[type='email'],
+    input[type='password'],
+    textarea,
+    select {
+        display: block;
+        width: 100%;
+        margin-bottom: $mt-spacer/2;
+        border-radius: $mt-radius-fields;
+    }
+
+    label.mt-unlabel,
+    .mt-unlabel label {
+        font:         $mt-font-fields;
+        color:        $mt-color-fields-fg;
+        margin-right: $mt-spacer;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        margin-right: $mt-spacer/2;
+    }
+
+    .mt-table, &.mt-table {
+
+        td,
+        .mt-td {
+            padding: 0;
+
+            input {
+                border-radius: 0;
+                border-width: 1px;
+                background-color: transparent;
+                margin-bottom: 0;
+
+                &:not(:disabled) {
+                    border-bottom:  1px solid $mt-color-fields-table-border;
+                }
+            }
+        }
+    }
+
+    .mt-input-wrap {
+        position: relative;
+        display: block;
+    }
+
+    .mt-error {
+        position:    absolute;
+        z-index:     1;
+        bottom:      -$mt-font-size-fields/4;
+        right:       $mt-spacer/2;
+        font-family: $mt-font-labels;
+        font-size:   $mt-font-size-sm;
+        padding:     2px $mt-font-size-fields/4;
+    }
+}
+
+// custom inputs
+
+.mt-radios, .mt-radios-sm,
+.mt-checkboxes, .mt-checkboxes-sm {
+    font-size: 0;
+
+    input {
+        position: absolute;
+        opacity:  0;
+        z-index:  -1;
+    }
+
+    label {
+        float:            left;
+        display:          inline-block;
+        color:            $mt-color-checkables-fg;
+        background-color: $mt-color-btn-subtle-bg;
+        border-radius:    $mt-radius-buttons;
+        text-align:       center;
+        cursor:           pointer;
+        margin-right:     5px;
+
+        @include border-out( $mt-color-btn-subtle-border );
+        transition: background-color ease $mt-transition-time-ui;
+
+        &:hover {
+            color:            $mt-color-btn-subtle-fg-hover;
+            background-color: $mt-color-btn-subtle-bg-hover;
+            border-color:     $mt-color-btn-subtle-border-hover;
+        }
+
+        &.mt-checked {
+            color:            $mt-color-checkables-fg-active;
+            background-color: $mt-color-checkables-bg-active;
+            @include border-in( $mt-color-checkables-border-active );
+        }
+    }
+
+    &.mt-connect label {
+        margin-right: 0;
+        border-radius: 0 !important;
+        &:not(:first-of-type) { margin-left: -1px; }
+        &:first-of-type { border-top-left-radius: $mt-radius-buttons !important; border-bottom-left-radius: $mt-radius-buttons !important; }
+        &:last-of-type  { border-top-right-radius: $mt-radius-buttons !important; border-bottom-right-radius: $mt-radius-buttons !important; }
+    }
+
+    &.mt-iconic {
+        cursor: pointer;
+    }
+}
+
+// sizing
+.mt-radios,
+.mt-checkboxes {
+    &:not(.mt-iconic) {
+        label {
+            font:    $mt-font-buttons;
+            @include button-padding;
+        }
+    }
+    &.mt-iconic {
+        label {
+            width:  $mt-font-size-lg * $mt-leading;
+            height: $mt-font-size-lg * $mt-leading;
+
+            &.mt-checked:after {
+                width:  $mt-font-size-lg * $mt-leading;
+                height: $mt-font-size-lg * $mt-leading;
+            }
+        }
+        // push text label down to center it
+        .mt-label {
+            display:     inline-block;
+            padding-top: $mt-font-size-lg * $mt-leading / 5;
+        }
+    }
+}
+
+.mt-radios-sm,
+.mt-checkboxes-sm {
+    &:not(.mt-iconic) {
+        label {
+            font:    $mt-font-buttons-sm;
+            @include button-sm-padding;
+        }
+    }
+    &.mt-iconic {
+        label {
+            width:  $mt-font-size-buttons-sm * $mt-leading;
+            height: $mt-font-size-buttons-sm * $mt-leading;
+
+            &.mt-checked:after {
+                width:  $mt-font-size-buttons-sm * $mt-leading;
+                height: $mt-font-size-buttons-sm * $mt-leading;
+            }
+        }
+    }
+}
+
+// iconic styling (standard dot and check)
+.mt-radios,
+.mt-radios-sm {
+    &.mt-iconic {
+        label { border-radius: 50%; }
+    }
+}
+
+.mt-radios,
+.mt-radios-sm,
+.mt-checkboxes,
+.mt-checkboxes-sm {
+    &.mt-iconic label.mt-checked {
+        position: relative;
+
+        &:after {
+            position: absolute;
+            display:  inline-block;
+            top: 0;
+            left: 0;
+        }
+    }
+}
+
+.mt-radios,
+.mt-radios-sm {
+    &.mt-iconic {
+        label:after {
+            content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Ccircle%20fill%3D%22none%22%20stroke%3D%22%23DDD%22%20stroke-miterlimit%3D%2210%22%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%224%22/%3E%3C/svg%3E ); //color is DDD
+        }
+        label.mt-checked:after {
+            top: -1px;
+            left: -2px;
+            content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Ccircle%20fill%3D%22none%22%20stroke%3D%22%23FFF%22%20stroke-miterlimit%3D%2210%22%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%224%22/%3E%3C/svg%3E ); //color is FFF
+        }
+    }
+}
+
+.mt-checkboxes,
+.mt-checkboxes-sm {
+    &.mt-iconic {
+        label:not(.mt-checked):after {
+            content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23DDD%22%20stroke-miterlimit%3D%2210%22%20d%3D%22M17.3%205.5l-10.5%209-4.1-6.1%22/%3E%3C/svg%3E );
+        }
+        label.mt-checked:after {
+            top: -1px;
+            left: -2px;
+            content: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23FFF%22%20stroke-miterlimit%3D%2210%22%20d%3D%22M17.3%205.5l-10.5%209-4.1-6.1%22/%3E%3C/svg%3E );
+        }
+    }
+}
+
+// row helper to hold a list of "checkable" inputs
+.mt-input-row {
+    margin-bottom: $mt-spacer/2;
+
+    &:before, &:after {
+        content: ' ';
+        display: table;
+    }
+    &:after { clear: both; }
+}

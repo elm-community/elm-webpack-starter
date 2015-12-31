@@ -1,0 +1,181 @@
+/* VARS: DEFAULT                           */
+
+// --- SETTINGS ---
+$mt-base-size:                      18px;                                                   // MAIN SIZING UNIT ( 1:1 with <p> text size)
+$mt-spacer:                         $mt-base-size * 0.8;                                    // main spacing unit
+$mt-gutter:            	            $mt-base-size * 0.8;                                    // horizontal grid padding (grid, wrapper)
+$mt-leading:                        1.4;                                                    // main line height setting
+
+$mt-wrapper-max-width: 	            1200px;                                                 // outer wrapper max width
+
+$mt-media-med:         	            960px;                                                  // mt-med threshold (tablets)
+$mt-media-min:         	            480px;                                                  // mt-min threshold (phones)
+
+$mt-radius-frames:                  3px;                                                    // corner radius of decorators, popups
+$mt-radius-buttons:                 3px;                                                    // corner radius of buttons, custom inputs
+$mt-radius-fields:                  0;                                                      // corner radius of text input fields
+
+$mt-transition-time-ui:             0.25s;                                                  // default css transition speed
+
+$mt-z-index-anchors:                100;                                                    // base z-index for mt-anchor elems
+
+
+// --- BASE THEME COLORS ---
+$mt-color-accent:                   desaturate( darken( #32C8EB, 8%), 25% );                // primary accent color
+$mt-color-accent-subtle:            rgba( $mt-color-accent, 0.60 );
+
+$mt-color-bg:            	          #FFFFFF;                                                // primary background color
+$mt-color-bg-subtle:                desaturate( lighten( $mt-color-accent, 45% ), 45% );    // well bg, odd table rows..
+
+$mt-color-fg:                       #444444;				                                        // primary text color
+$mt-color-fg-subtle:                desaturate( lighten( $mt-color-fg, 40% ), 10% );        // well borders, table headers..
+
+
+// --- TYPOGRAPHY ---
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Oswald:300);                             // headers
+
+$mt-font-body:			                'Lato', sans-serif;
+$mt-font-headers:		                'Oswald', sans-serif;
+$mt-font-code:		                  'Courier New', Courier, monospace;
+
+$mt-font-weight-light:              300;
+$mt-font-weight-normal:             400;
+$mt-font-weight-bold:               700;
+
+$mt-font-headers-weight-light:      300;
+$mt-font-headers-weight-normal:     300;
+$mt-font-headers-weight-bold:       bold;
+
+// text sizing -- use $mt-base-size (above) to size everything at once, then fine-tune multipliers below...
+$mt-font-size-p:                    $mt-base-size * 1;                                      // size of default text, <p>
+$mt-font-size-code:                 $mt-base-size * 0.8;
+
+$mt-font-size-xxl:		              $mt-base-size * 1.9;                                    // <h1>
+$mt-font-size-xl:		                $mt-base-size * 1.6;                                    // <h2>
+$mt-font-size-lg:		                $mt-base-size * 1.3;                                    // <h3>
+$mt-font-size-md:		                $mt-base-size * 1.1;                                    // <h4>
+$mt-font-size-sm:         	        $mt-base-size * 0.75;                                   // <small>
+
+$mt-font-size-fields:               $mt-base-size * 1.1;                                    // form inputs
+$mt-font-size-labels:               $mt-base-size * 0.9;                                    // form input labels
+
+$mt-font-size-buttons:              $mt-base-size * 1.1;
+$mt-font-size-buttons-sm:           $mt-base-size * 0.75;
+
+$mt-font-size-nav:                  $mt-font-size-lg;
+$mt-font-size-subnav:               $mt-font-size-p;
+
+$mt-med-font-scale:                 0.94;                                                   // font size adjustment when mt-med
+$mt-min-font-scale:                 0.88;                                                   // font size adjustment when mt-min
+
+// font width-style-size-family assignments (shorthands)
+$mt-font-h1:                        normal normal $mt-font-size-xxl        $mt-font-headers;
+$mt-font-h2:                        normal normal $mt-font-size-xl         $mt-font-headers;
+$mt-font-h3:                        300    normal $mt-font-size-lg         $mt-font-body;
+$mt-font-h4:                        300    normal $mt-font-size-md         $mt-font-body;
+$mt-font-p:                         300    normal $mt-font-size-p          $mt-font-body;
+$mt-font-a:                         300    normal $mt-font-size-p          $mt-font-body;
+$mt-font-code:                      normal normal $mt-font-size-code       $mt-font-code;
+$mt-font-fields:                    300    normal $mt-font-size-fields     $mt-font-body;
+$mt-font-labels:                    400    normal $mt-font-size-labels     $mt-font-body;
+$mt-font-buttons:                   400    normal $mt-font-size-buttons    $mt-font-body;
+$mt-font-buttons-sm:                400    normal $mt-font-size-buttons-sm $mt-font-body;
+$mt-font-buttons-subtle:            400    normal $mt-font-size-buttons    $mt-font-body;
+$mt-font-buttons-subtle-sm:         400    normal $mt-font-size-buttons-sm $mt-font-body;
+$mt-font-nav:                       400    normal $mt-font-size-nav        $mt-font-headers;
+$mt-font-subnav:                    300    normal $mt-font-size-subnav     $mt-font-body;
+
+$mt-font-weight-p-bold:             400;
+
+// font color assignments
+$mt-color-h1:                       $mt-color-fg-subtle;
+$mt-color-h2:                       $mt-color-fg;
+$mt-color-h3:                       $mt-color-accent;
+$mt-color-h4:                       $mt-color-accent;
+$mt-color-p:                        $mt-color-fg;
+$mt-color-script:                   $mt-color-fg-subtle;
+$mt-color-code:                     desaturate( lighten( $mt-color-accent, 0% ), 25% );
+
+$mt-color-a:                        #F38630;                                                // text links
+$mt-color-a-hover:                  lighten( $mt-color-a, 15% );
+$mt-color-a-active:                 darken( $mt-color-a, 15% );
+
+$mt-color-pill-fg:                  $mt-color-bg;                                           // in case needs a stronger flavor of 'bg'
+
+
+// --- OTHER COLORS ---
+
+// solid cta buttons
+$mt-color-btn-bg:                   $mt-color-a;
+$mt-color-btn-fg:                   $mt-color-bg;
+$mt-color-btn-border:               darken( $mt-color-a, 15% );
+$mt-color-btn-bg-hover:             darken( $mt-color-btn-bg, 5%);
+$mt-color-btn-fg-hover:             $mt-color-bg;
+$mt-color-btn-border-hover:         darken( $mt-color-btn-border, 5%);
+$mt-color-btn-bg-active:            darken( $mt-color-btn-bg, 10%);
+$mt-color-btn-fg-active:            $mt-color-bg;
+$mt-color-btn-border-active:        darken( $mt-color-btn-border, 10%);
+
+// subtle (hollow) buttons
+$mt-color-btn-subtle-bg:            transparent;
+$mt-color-btn-subtle-fg:            $mt-color-a;
+$mt-color-btn-subtle-border:        $mt-color-a;
+$mt-color-btn-subtle-bg-hover:      rgba( $mt-color-a, 0.1 );
+$mt-color-btn-subtle-fg-hover:      darken( $mt-color-btn-subtle-fg, 4%);
+$mt-color-btn-subtle-border-hover:  darken( $mt-color-btn-subtle-border, 4%);
+$mt-color-btn-subtle-bg-active:     $mt-color-btn-bg-active;
+$mt-color-btn-subtle-fg-active:     $mt-color-btn-fg-active;
+$mt-color-btn-subtle-border-active: $mt-color-btn-border-active;
+
+// custom mt radios/checkboxes
+$mt-color-checkables-fg:            desaturate( lighten( $mt-color-a, 15%), 5% );
+$mt-color-checkables-bg-active:     $mt-color-btn-subtle-bg-active;
+$mt-color-checkables-fg-active:     $mt-color-btn-subtle-fg-active;
+$mt-color-checkables-border-active: $mt-color-btn-subtle-border-active;
+
+// forms
+$mt-color-labels:                   $mt-color-accent;                                       // form labels
+$mt-color-fields-bg:                rgba( #000000, 0.10 );                                  // text fields background
+$mt-color-fields-fg:                $mt-color-fg;                                           // text fields text
+$mt-color-fields-border:            transparent;                                            // text fields border color
+$mt-color-fields-table-border:      $mt-color-fg-subtle;                                    // table text fields border color
+
+// nav
+$mt-color-nav-bg:                   $mt-color-bg;
+$mt-color-nav-fg:                   $mt-color-accent-subtle;
+$mt-color-nav-border:               $mt-color-accent-subtle;
+$mt-color-nav-bg-hover:             rgba( $mt-color-accent, 0.2);
+$mt-color-nav-fg-hover:             $mt-color-accent;
+$mt-color-nav-fg-open:              $mt-color-accent;
+$mt-color-nav-border-hover:         $mt-color-accent-subtle;
+$mt-color-nav-bg-active:            $mt-color-bg;
+$mt-color-nav-fg-active:            $mt-color-accent;
+$mt-color-nav-border-active:        $mt-color-accent-subtle;
+
+// status colors
+$mt-color-alert-bg:                 darken( desaturate( $mt-color-accent, 10%), 3% );		    // alerts/info colors
+$mt-color-alert-fg:                 $mt-color-bg;
+$mt-color-alert-subtle-bg:          lighten( $mt-color-alert-bg, 40% );
+$mt-color-alert-subtle-fg:          $mt-color-alert-bg;
+
+$mt-color-success-bg:               #778c2e;					                                      // success colors
+$mt-color-success-fg:               $mt-color-bg;
+$mt-color-success-subtle-bg:        lighten( $mt-color-success-bg, 40% );
+$mt-color-success-subtle-fg:        $mt-color-success-bg;
+
+$mt-color-error-bg:                 #C94C51;					                                      // error/fail colors
+$mt-color-error-fg:                 $mt-color-bg;
+$mt-color-error-subtle-bg:          lighten( $mt-color-error-bg, 32% );
+$mt-color-error-subtle-fg:          $mt-color-error-bg;
+
+// drop shadows
+$mt-color-shadow:                   rgba( $mt-color-fg, 0.33 );                             // drop shadow controls
+$mt-shadow-size-h:                  0;
+$mt-shadow-size-v:                  4px;
+$mt-shadow-blur:                    3px;
+
+// popups/modals
+$mt-color-popup-fg:                 $mt-color-fg;
+$mt-color-popup-bg:                 $mt-color-alert-subtle-bg;
+$mt-color-popup-border:             $mt-color-fg-subtle;
