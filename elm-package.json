@@ -1,18 +1,19 @@
 {
-  "version": "0.0.1",
-  "summary": "Example using `elm-webpack-loader`.",
-  "repository": "https://github.com/rtfeldman/elm-webpack-loader.git",
-  "license": "BSD-3-Clause",
-  "source-directories": [
-    "src"
-  ],
-  "exposed-modules": [
-    "StartApp",
-    "StartApp.Simple"
-  ],
-  "dependencies": {
-    "elm-lang/core": "3.0.0 <= v < 4.0.0",
-    "evancz/elm-html": "4.0.2 <= v < 5.0.0"
-  },
-  "elm-version": "0.16.0 <= v < 0.17.0"
+    "version": "0.0.1",
+    "summary": "Example using `elm-webpack-loader`.",
+    "repository": "https://github.com/rtfeldman/elm-webpack-loader.git",
+    "license": "BSD-3-Clause",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [
+        "StartApp",
+        "StartApp.Simple"
+    ],
+    "dependencies": {
+        "elm-lang/core": "3.0.0 <= v < 4.0.0",
+        "evancz/elm-html": "4.0.2 <= v < 5.0.0",
+        "evancz/start-app": "2.0.2 <= v < 3.0.0"
+    },
+    "elm-version": "0.16.0 <= v < 0.17.0"
 }
