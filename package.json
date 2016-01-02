@@ -9,12 +9,10 @@
     "build": "webpack",
     "watch": "webpack --watch"
   },
-  "dependencies": {
-    "elm": "^0.16.0"
-  },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
     "css-loader": "^0.23.1",
+    "elm": "^0.16.0",
     "elm-webpack-loader": "^1.1.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",

@@ -2,32 +2,40 @@
 
 Webpack build script for writing [Elm](http://elm-lang.org/) apps:
 
+* Webpack dev server with live reloading
 * Support for CSS/SCSS, with Autoprefixer
-* Webpack server for local dev
-* Bundling and minification for prod
+* Bundling and minification for deployment
+* Starter files, just start coding!
 
 
 ### Install:
 ```
 $ git clone git@github.com:pmdesgn/elm-webpack-starter.git
 $ cd elm-webpack-starter
-$ sudo npm install -g elm
 $ npm install
+```
+
+If you haven't done so yet, install Elm globally:
+```
+npm install -g elm
 ```
 
 ### Serve locally:
 ```
 $ npm start
 ```
+* Access app at `http://localhost:8080/`
+* Browser will refresh automatically on any file changes
 
-### Build for prod:
+
+### Build & bundle for prod:
 ```
 $ npm run build
-$ open dist/index.html
 ```
 
 * Files are saved into the `/dist` folder
-* To push the `dist` folder to your repo's `gh-pages`, commit your changes then:
+* To check it `$ open dist/index.html`
+* To publish the `/dist` folder to your repo's `gh-pages`, commit any changes then:
 ```
 git subtree push --prefix dist origin gh-pages
 open http://<your-github-account>.github.io/elm-webpack-starter/
