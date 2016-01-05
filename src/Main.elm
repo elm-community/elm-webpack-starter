@@ -13,7 +13,11 @@ import Components.Hello exposing ( hello )
 
 -- APP KICK OFF!
 main =
-  StartApp.start { model = model, view = view, update = update }
+  StartApp.start
+    { model = model
+    , view = view
+    , update = update
+    }
 
 
 -- MODEL
@@ -28,10 +32,9 @@ model = 0
 view address model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]
-    [
-      hello model,
-      p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ],
-      button [ class "mt-button-sm", onClick address Increment ] [ text "FTW!" ]
+    [ hello model
+    ,  p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ]
+    ,  button [ class "mt-button-sm", onClick address Increment ] [ text "FTW!" ]
     ]
 
 
@@ -47,9 +50,8 @@ update action model =
 styles =
   {
     wrapper =
-      [
-        ( "padding-top", "10px" ),
-        ( "padding-bottom", "20px" ),
-        ( "text-align", "center" )
+      [ ( "padding-top", "10px" )
+      , ( "padding-bottom", "20px" )
+      , ( "text-align", "center" )
       ]
   }
