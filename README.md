@@ -20,9 +20,9 @@ If you haven't done so yet, install Elm globally:
 npm install -g elm
 ```
 
-Install Elm's `start-app` package:
+Install Elm's dependencies:
 ```
-elm package install evancz/start-app
+elm package install
 ```
 
 ### Serve locally:
