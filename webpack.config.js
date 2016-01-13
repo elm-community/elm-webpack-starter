@@ -1,7 +1,8 @@
 var webpack           = require( 'webpack' );
 var merge             = require( 'webpack-merge' );
+var autoprefixer      = require( 'autoprefixer' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-var swig              = require( 'swig' );        // templating lib for generating index.html 
+var swig              = require( 'swig' );        // templating lib for generating index.html
 var writefile         = require( 'writefile' );   // safer Node file writer (creates folders if not existing)
 
 console.log( 'WEBPACK GO!');
@@ -66,12 +67,15 @@ if ( TARGET_ENV === 'dev' ) {
           loaders: [
             'style-loader',
             'css-loader',
-            'autoprefixer-loader?browsers=last 2 versions',
+            'postcss-loader',
             'sass-loader'
           ]
         }
       ]
-    }
+    },
+
+    postcss: [ autoprefixer( { browsers: ['last 2 versions'] } ) ]
+    
   });
 }
 
@@ -86,12 +90,14 @@ if ( TARGET_ENV === 'prod' ) {
           test: /\.(css|scss)$/,
           loader: ExtractTextPlugin.extract( 'style-loader', [
             'css-loader',
-            'autoprefixer-loader?browsers=last 2 versions',
+            'postcss-loader',
             'sass-loader'
           ])
         }
       ]
     },
+
+    postcss: [ autoprefixer( { browsers: ['last 2 versions'] } ) ],
 
     plugins: [
       // extract CSS into a separate file
