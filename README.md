@@ -8,9 +8,16 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 * Basic app scaffold, integrating Elm's official [StartApp](https://github.com/evancz/start-app) package
 * A snippet of example code to get you started!
 
+**Ver 0.3.0**
+* Updated with latest NPM module versions
+* Now using *html-webpack-plugin* to generate *index.html*
+* Bundled JS and CSS get unique hash filenames (prevents caching)
+* Build script also copies images and favicon to *dist/*
+
+
 ### Install:
 ```
-git clone git@github.com:pmdesgn/elm-webpack-starter.git
+git clone https://github.com/pmdesgn/elm-webpack-starter
 cd elm-webpack-starter
 npm install
 ```
@@ -30,7 +37,7 @@ elm package install
 npm start
 ```
 * Access app at `http://localhost:8080/`
-* Get coding! The entry point file is `src/Main.elm` 
+* Get coding! The entry point file is `src/Main.elm`
 * Browser will refresh automatically on any file changes..
 
 
