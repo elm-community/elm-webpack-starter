@@ -28,7 +28,7 @@ model = 0
 -- Examples of:
 -- 1)  an externally defined component ('hello', takes 'model' as arg)
 -- 2a) styling through CSS classes (external stylesheet)
--- 2b) styling using inlne style attribute (two variants)
+-- 2b) styling using inline style attribute (two variants)
 view address model =
   div
     [ class "mt-palette-accent", style styles.wrapper ]

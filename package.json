@@ -1,6 +1,6 @@
 {
   "name": "elm-webpack-starter",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "author": "Peter Morawiec",
   "private": true,
@@ -10,20 +10,20 @@
     "watch": "webpack --watch"
   },
   "devDependencies": {
-    "autoprefixer": "6.2.3",
+    "autoprefixer": "6.3.3",
     "css-loader": "0.23.1",
     "elm": "0.16.0",
-    "elm-webpack-loader": "1.1.1",
-    "extract-text-webpack-plugin": "0.9.1",
+    "elm-webpack-loader": "2.0.0",
+    "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
     "node-sass": "3.4.2",
-    "postcss-loader": "0.8.0",
+    "postcss-loader": "0.8.1",
     "sass-loader": "3.1.2",
     "style-loader": "0.13.0",
     "swig": "1.4.2",
-    "webpack": "1.12.0",
-    "webpack-dev-server": "1.14.0",
-    "webpack-merge": "0.6.0",
+    "webpack": "1.12.13",
+    "webpack-dev-server": "1.14.1",
+    "webpack-merge": "0.7.3",
     "writefile": "0.2.8"
   }
 }
