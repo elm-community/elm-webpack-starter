@@ -10,7 +10,6 @@ import StartApp.Simple as StartApp
 -- component import example
 import Components.Hello exposing ( hello )
 
-
 -- APP KICK OFF!
 main =
   StartApp.start
@@ -35,6 +34,7 @@ view address model =
     [ hello model
     ,  p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ]
     ,  button [ class "mt-button-sm", onClick address Increment ] [ text "FTW!" ]
+    ,  img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
     ]
 
 
