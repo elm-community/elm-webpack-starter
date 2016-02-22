@@ -1,29 +1,21 @@
+var path              = require( 'path' );
 var webpack           = require( 'webpack' );
 var merge             = require( 'webpack-merge' );
+var HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 var autoprefixer      = require( 'autoprefixer' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-var swig              = require( 'swig' );        // templating lib for generating index.html
-var writefile         = require( 'writefile' );   // safer Node file writer (creates folders if not existing)
 
 console.log( 'WEBPACK GO!');
 
 // detemine build env
 var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? 'prod' : 'dev';
 
-// generate HTML for index page (based on desired env)
-var indexTemplate = swig.compileFile('./src/index.html');
-var indexHtml     = indexTemplate( { env: TARGET_ENV } );
-
-// write out index.html to dist/
-writefile( './dist/index.html', indexHtml );
-
 // common webpack config
 var commonConfig = {
-  entry: './src/index.js',
 
   output: {
-    path:     './dist',
-    filename: 'bundle.js'
+    path:       path.resolve( __dirname, 'dist/' ),
+    filename: '[hash].js',
   },
 
   resolve: {
@@ -34,11 +26,6 @@ var commonConfig = {
   module: {
     loaders: [
       {
-        test:    /\.html$/,
-        exclude: /node_modules/,
-        loader:  'file?name=[name].[ext]'
-      },
-      {
         test:    /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
         loader:  'elm-webpack'
@@ -46,7 +33,18 @@ var commonConfig = {
     ],
 
     noParse: /\.elm$/
-  }
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html',
+      inject:   'body',
+      filename: 'index.html'
+    })
+  ],
+
+  postcss: [ autoprefixer( { browsers: ['last 2 versions'] } ) ],
+
 }
 
 // additional webpack settings for local env (when invoked by 'npm start')
@@ -55,9 +53,14 @@ if ( TARGET_ENV === 'dev' ) {
 
   module.exports = merge( commonConfig, {
 
+    entry: [
+      'webpack-dev-server/client?http://localhost:8080',
+      path.join( __dirname, 'src/index.js' )
+    ],
+
     devServer: {
-      inline: true,
-      stats: 'errors-only'
+      inline:             true,
+      progress:           true
     },
 
     module: {
@@ -72,10 +75,8 @@ if ( TARGET_ENV === 'dev' ) {
           ]
         }
       ]
-    },
+    }
 
-    postcss: [ autoprefixer( { browsers: ['last 2 versions'] } ) ]
-    
   });
 }
 
@@ -84,6 +85,9 @@ if ( TARGET_ENV === 'prod' ) {
   console.log( 'Building for prod...');
 
   module.exports = merge( commonConfig, {
+    
+    entry: path.join( __dirname, 'src/index.js' ),
+
     module: {
       loaders: [
         {
@@ -97,17 +101,17 @@ if ( TARGET_ENV === 'prod' ) {
       ]
     },
 
-    postcss: [ autoprefixer( { browsers: ['last 2 versions'] } ) ],
-
     plugins: [
+      new webpack.optimize.OccurenceOrderPlugin(),
+
       // extract CSS into a separate file
-      new ExtractTextPlugin( './css/stylesheet.css', { allChunks: true } ),
+      new ExtractTextPlugin( './[hash].css', { allChunks: true } ),
 
       // minify & mangle JS/CSS
       new webpack.optimize.UglifyJsPlugin({
           minimize:   true,
-          compressor: { warnings: false },
-          mangle:     true                      // TODO: need any exceptions?
+          compressor: { warnings: false }
+          // mangle:  true
       })
     ]
 
