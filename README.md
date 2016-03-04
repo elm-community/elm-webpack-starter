@@ -17,7 +17,7 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 
 ### Install:
 ```
-git clone https://github.com/pmdesgn/elm-webpack-starter
+git clone https://github.com/moarwick/elm-webpack-starter
 cd elm-webpack-starter
 npm install
 ```
@@ -48,7 +48,7 @@ npm run build
 
 * Files are saved into the `/dist` folder
 * To check it, open `dist/index.html`
-* To publish the `/dist` folder to your repo's `gh-pages`, commit any changes then:
+* To publish the `/dist` folder to your own GitHub repo's `gh-pages`, commit any changes, then:
 ```
 git subtree push --prefix dist origin gh-pages
 open http://<your-github-account>.github.io/elm-webpack-starter/
