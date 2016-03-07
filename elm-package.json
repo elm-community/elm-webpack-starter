@@ -12,6 +12,7 @@
     ],
     "dependencies": {
         "elm-lang/core": "3.0.0 <= v < 4.0.0",
+        "evancz/elm-effects": "2.0.1 <= v < 3.0.0",
         "evancz/elm-html": "4.0.2 <= v < 5.0.0",
         "evancz/start-app": "2.0.2 <= v < 3.0.0"
     },
