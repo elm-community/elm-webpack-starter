@@ -85,7 +85,7 @@ if ( TARGET_ENV === 'prod' ) {
   console.log( 'Building for prod...');
 
   module.exports = merge( commonConfig, {
-    
+
     entry: path.join( __dirname, 'src/index.js' ),
 
     module: {
@@ -108,11 +108,13 @@ if ( TARGET_ENV === 'prod' ) {
       new ExtractTextPlugin( './[hash].css', { allChunks: true } ),
 
       // minify & mangle JS/CSS
-      new webpack.optimize.UglifyJsPlugin({
-          minimize:   true,
-          compressor: { warnings: false }
-          // mangle:  true
-      })
+      // TODO: disabled for now, appears to throw an error in elm-hot-loader..
+
+      // new webpack.optimize.UglifyJsPlugin({
+      //     minimize:   true,
+      //     compressor: { warnings: false }
+      //     // mangle:  true
+      // })
     ]
 
   });

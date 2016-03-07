@@ -1,6 +1,7 @@
 {
   "name": "elm-webpack-starter",
-  "version": "0.3.0",
+  "description": "A Webpack build setup for writing Elm apps",
+  "version": "0.4.0",
   "license": "MIT",
   "author": "Peter Morawiec",
   "private": true,
@@ -13,7 +14,7 @@
     "autoprefixer": "6.3.3",
     "css-loader": "0.23.1",
     "elm": "0.16.0",
-    "elm-hot-loader": "^0.2.0",
+    "elm-hot-loader": "0.2.0",
     "elm-webpack-loader": "2.0.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
