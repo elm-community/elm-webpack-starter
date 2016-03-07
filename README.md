@@ -14,9 +14,8 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 * Apply unique hash filenames to bundled JS and CSS files (prevents caching)
 * Make build script copy images and favicon to *dist/*
 
-**Ver 0.4.0**
+**Ver 0.4.1**
 * Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
-* Disable Uglify step (until bug resolved)
 
 
 ### Install:

@@ -8,7 +8,7 @@ var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 console.log( 'WEBPACK GO!');
 
 // detemine build env
-var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? 'prod' : 'dev';
+var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? 'production' : 'development';
 
 // common webpack config
 var commonConfig = {
@@ -24,14 +24,6 @@ var commonConfig = {
   },
 
   module: {
-    loaders: [
-      {
-        test:    /\.elm$/,
-        exclude: [/elm-stuff/, /node_modules/],
-        loader:  'elm-hot!elm-webpack'
-      }
-    ],
-
     noParse: /\.elm$/
   },
 
@@ -48,7 +40,7 @@ var commonConfig = {
 }
 
 // additional webpack settings for local env (when invoked by 'npm start')
-if ( TARGET_ENV === 'dev' ) {
+if ( TARGET_ENV === 'development' ) {
   console.log( 'Serving locally...');
 
   module.exports = merge( commonConfig, {
@@ -59,12 +51,17 @@ if ( TARGET_ENV === 'dev' ) {
     ],
 
     devServer: {
-      inline:             true,
-      progress:           true
+      inline:   true,
+      progress: true
     },
 
     module: {
       loaders: [
+        {
+          test:    /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          loader:  'elm-hot!elm-webpack'
+        },
         {
           test: /\.(css|scss)$/,
           loaders: [
@@ -81,7 +78,7 @@ if ( TARGET_ENV === 'dev' ) {
 }
 
 // additional webpack settings for prod env (when invoked via 'npm run build')
-if ( TARGET_ENV === 'prod' ) {
+if ( TARGET_ENV === 'production' ) {
   console.log( 'Building for prod...');
 
   module.exports = merge( commonConfig, {
@@ -90,6 +87,11 @@ if ( TARGET_ENV === 'prod' ) {
 
     module: {
       loaders: [
+        {
+          test:    /\.elm$/,
+          exclude: [/elm-stuff/, /node_modules/],
+          loader:  'elm-webpack'
+        },
         {
           test: /\.(css|scss)$/,
           loader: ExtractTextPlugin.extract( 'style-loader', [
@@ -108,13 +110,11 @@ if ( TARGET_ENV === 'prod' ) {
       new ExtractTextPlugin( './[hash].css', { allChunks: true } ),
 
       // minify & mangle JS/CSS
-      // TODO: disabled for now, appears to throw an error in elm-hot-loader..
-
-      // new webpack.optimize.UglifyJsPlugin({
-      //     minimize:   true,
-      //     compressor: { warnings: false }
-      //     // mangle:  true
-      // })
+      new webpack.optimize.UglifyJsPlugin({
+          minimize:   true,
+          compressor: { warnings: false }
+          // mangle:  true
+      })
     ]
 
   });
