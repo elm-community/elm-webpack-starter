@@ -5,7 +5,7 @@
   "author": "Peter Morawiec",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --content-base src/",
+    "start": "webpack-dev-server --hot --inline --content-base src/",
     "build": "rimraf dist && webpack && cp -r src/img/ dist/img/ && cp src/favicon.ico dist/favicon.ico",
     "watch": "webpack --watch"
   },
@@ -13,6 +13,7 @@
     "autoprefixer": "6.3.3",
     "css-loader": "0.23.1",
     "elm": "0.16.0",
+    "elm-hot-loader": "^0.2.0",
     "elm-webpack-loader": "2.0.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
