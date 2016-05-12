@@ -1,4 +1,4 @@
-module Components.Hello where
+module Components.Hello exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)

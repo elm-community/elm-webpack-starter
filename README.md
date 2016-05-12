@@ -17,6 +17,11 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 **Ver 0.4.0**
 * Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
 
+**Ver 0.5.0**
+* Update to Elm 0.17.0 (and other latest modules)
+* Upgrade starter code per [upgrade-docs](https://github.com/elm-lang/elm-platform/blob/master/upgrade-docs/0.17.md)
+* Remove `elm-hot-loader` (for now)
+
 
 ### Install:
 ```
