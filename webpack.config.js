@@ -60,7 +60,7 @@ if ( TARGET_ENV === 'development' ) {
         {
           test:    /\.elm$/,
           exclude: [/elm-stuff/, /node_modules/],
-          loader:  'elm-hot!elm-webpack'
+          loader:  'elm-webpack'
         },
         {
           test: /\.(css|scss)$/,

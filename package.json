@@ -1,10 +1,13 @@
 {
   "name": "elm-webpack-starter",
   "description": "Webpack setup for writing Elm apps",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "license": "MIT",
   "author": "Peter Morawiec",
-  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moarwick/elm-webpack-starter"
+  },
   "scripts": {
     "start": "webpack-dev-server --hot --inline --content-base src/",
     "build": "rimraf dist && webpack && cp -r src/img/ dist/img/ && cp src/favicon.ico dist/favicon.ico",
