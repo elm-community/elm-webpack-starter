@@ -5,7 +5,7 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 * Dev server with live reloading & HMR
 * Support for CSS/SCSS, with Autoprefixer
 * Bundling and minification for deployment
-* Basic app scaffold, integrating Elm's official [StartApp](https://github.com/evancz/start-app) package
+* Basic app scaffold, using `Html.App`
 * A snippet of example code to get you started!
 
 **Ver 0.3.0**
