@@ -1,6 +1,6 @@
 {
   "name": "elm-webpack-starter",
-  "description": "A Webpack build setup for writing Elm apps",
+  "description": "Webpack setup for writing Elm apps",
   "version": "0.4.1",
   "license": "MIT",
   "author": "Peter Morawiec",
@@ -11,21 +11,21 @@
     "watch": "webpack --watch"
   },
   "devDependencies": {
-    "autoprefixer": "6.3.3",
+    "autoprefixer": "6.3.6",
     "css-loader": "0.23.1",
-    "elm": "0.16.0",
-    "elm-hot-loader": "0.2.0",
-    "elm-webpack-loader": "2.0.0",
+    "elm": "0.17.0",
+    "elm-hot-loader": "0.2.2",
+    "elm-webpack-loader": "3.0.0",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
-    "html-webpack-plugin": "2.9.0",
-    "node-sass": "3.4.2",
-    "postcss-loader": "0.8.1",
+    "html-webpack-plugin": "2.16.1",
+    "node-sass": "3.7.0",
+    "postcss-loader": "0.9.1",
     "rimraf": "2.5.2",
-    "sass-loader": "3.1.2",
-    "style-loader": "0.13.0",
-    "webpack": "1.12.13",
+    "sass-loader": "3.2.0",
+    "style-loader": "0.13.1",
+    "webpack": "1.13.0",
     "webpack-dev-server": "1.14.1",
-    "webpack-merge": "0.7.3"
+    "webpack-merge": "0.12.0"
   }
 }
