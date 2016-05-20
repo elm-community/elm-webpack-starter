@@ -2,25 +2,12 @@
 
 A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 
-* Dev server with live reloading & HMR
-* Support for CSS/SCSS, with Autoprefixer
+* Dev server with live reloading, HMR
+* Support for CSS/SCSS (with Autoprefixer), image assets
+* Bootstrap 3.3+ (Sass version)
 * Bundling and minification for deployment
 * Basic app scaffold, using `Html.App`
 * A snippet of example code to get you started!
-
-**Ver 0.3.0**
-* Update to latest NPM module versions
-* Use *html-webpack-plugin* to generate *index.html*
-* Apply unique hash filenames to bundled JS and CSS files (prevents caching)
-* Make build script copy images and favicon to *dist/*
-
-**Ver 0.4.0**
-* Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
-
-**Ver 0.5.0**
-* Update to Elm 0.17.0 (and other latest modules)
-* Upgrade starter code per [upgrade-docs](https://github.com/elm-lang/elm-platform/blob/master/upgrade-docs/0.17.md)
-* Remove `elm-hot-loader` (for now)
 
 
 ### Install:
@@ -61,3 +48,22 @@ npm run build
 git subtree push --prefix dist origin gh-pages
 open http://<your-github-account>.github.io/elm-webpack-starter/
 ```
+
+### Changelog
+**Ver 0.3.0**
+* Update to latest NPM module versions
+* Use *html-webpack-plugin* to generate *index.html*
+* Unique hash filenames for bundled JS and CSS (prevents caching)
+* Image and favicon assets getting copied to *dist/*
+
+**Ver 0.4.0**
+* Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
+
+**Ver 0.5.0**
+* Update to Elm 0.17.0 (and other latest modules)
+* Upgrade starter code per [upgrade-docs](https://github.com/elm-lang/elm-platform/blob/master/upgrade-docs/0.17.md)
+* Remove `elm-hot-loader` (for now)
+
+**Ver 0.6.0**
+* `elm-hot-loader` is back (no Elm code changes required!)
+* Switch to [bootstrap-sass](https://www.npmjs.com/package/bootstrap-sass) to demo CSS
