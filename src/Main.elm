@@ -38,10 +38,10 @@ update msg model =
 view : Model -> Html Msg
 view model =
   div
-    [ class "mt-palette-accent", style styles.wrapper ]
+    [ class "jumbotron", style styles.wrapper ]
     [ hello model
     ,  p [ style [( "color", "#FFF")] ] [ text ( "Elm Webpack Starter" ) ]
-    ,  button [ class "mt-button-sm", onClick Increment ] [ text "FTW!" ]
+    ,  button [ class "btn btn-primary btn-large", onClick Increment ] [ text "FTW!" ]
     ,  img [ src "img/elm.jpg", style [( "display", "block"), ( "margin", "10px auto")] ] []
     ]
 

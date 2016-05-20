@@ -24,7 +24,13 @@ var commonConfig = {
   },
 
   module: {
-    noParse: /\.elm$/
+    noParse: /\.elm$/,
+    loaders: [
+      {
+        test: /\.(eot|ttf|woff|woff2|svg)$/,
+        loader: 'file-loader'
+      }
+    ]
   },
 
   plugins: [
