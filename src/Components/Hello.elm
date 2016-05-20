@@ -7,5 +7,5 @@ import String
 -- hello component
 hello model =
   div
-    [ class "mt-h2" ]
-    [ text ( "Hello, World" ++ ( "!" |> String.repeat model ) ) ]
+    [ class "h1" ]
+    [ text ( "Hello, Elm" ++ ( "!" |> String.repeat model ) ) ]
