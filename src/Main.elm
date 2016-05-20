@@ -8,12 +8,15 @@ import Components.Hello exposing ( hello )
 
 
 -- APP
+main : Program Never
 main =
   Html.beginnerProgram { model = model, view = view, update = update }
 
 
 -- MODEL
 type alias Model = Int
+
+model : number
 model = 0
 
 
@@ -44,6 +47,7 @@ view model =
 
 
 -- CSS STYLES
+styles : { wrapper : List ( String, String ) }
 styles =
   {
     wrapper =
