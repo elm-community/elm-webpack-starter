@@ -5,6 +5,7 @@ import Html.Attributes exposing (..)
 import String
 
 -- hello component
+hello : Int -> Html a
 hello model =
   div
     [ class "h1" ]
