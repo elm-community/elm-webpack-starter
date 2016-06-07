@@ -10,7 +10,6 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot --inline --content-base src/",
-    "build-legacy": "rimraf dist && webpack && cp -r src/img/ dist/img/ && cp src/favicon.ico dist/favicon.ico",
     "build": "rimraf dist && webpack",
     "watch": "webpack --watch"
   },
