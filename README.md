@@ -43,27 +43,26 @@ npm run build
 
 * Files are saved into the `/dist` folder
 * To check it, open `dist/index.html`
-* To publish the `/dist` folder to your own GitHub repo's `gh-pages`, commit any changes, then:
-```
-git subtree push --prefix dist origin gh-pages
-open http://<your-github-account>.github.io/elm-webpack-starter/
-```
+
 
 ### Changelog
-**Ver 0.3.0**
-* Update to latest NPM module versions
-* Use *html-webpack-plugin* to generate *index.html*
-* Unique hash filenames for bundled JS and CSS (prevents caching)
-* Image and favicon assets getting copied to *dist/*
 
-**Ver 0.4.0**
-* Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
+**Ver 0.6.2**
+* Use `copy-webpack-plugin` instead of `cp` to copy files (Windows compatible)
+
+**Ver 0.6.0**
+* `elm-hot-loader` is back (no Elm code changes required!)
+* Switch to [bootstrap-sass](https://www.npmjs.com/package/bootstrap-sass) to demo CSS
 
 **Ver 0.5.0**
 * Update to Elm 0.17.0 (and other latest modules)
 * Upgrade starter code per [upgrade-docs](https://github.com/elm-lang/elm-platform/blob/master/upgrade-docs/0.17.md)
 * Remove `elm-hot-loader` (for now)
 
-**Ver 0.6.0**
-* `elm-hot-loader` is back (no Elm code changes required!)
-* Switch to [bootstrap-sass](https://www.npmjs.com/package/bootstrap-sass) to demo CSS
+**Ver 0.4.0**
+* Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
+
+**Ver 0.3.0**
+* Use *html-webpack-plugin* to generate *index.html*
+* Unique hash filenames for bundled JS and CSS (prevents caching)
+* Image and favicon assets copied to *dist/*

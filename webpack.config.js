@@ -4,6 +4,7 @@ var merge             = require( 'webpack-merge' );
 var HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 var autoprefixer      = require( 'autoprefixer' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+var CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 
 console.log( 'WEBPACK GO!');
 
@@ -110,6 +111,16 @@ if ( TARGET_ENV === 'production' ) {
     },
 
     plugins: [
+      new CopyWebpackPlugin([
+        {
+          from: 'src/img/',
+          to:   'img/'
+        },
+        {
+          from: 'src/favicon.ico'
+        },
+      ]),
+
       new webpack.optimize.OccurenceOrderPlugin(),
 
       // extract CSS into a separate file
