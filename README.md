@@ -63,6 +63,6 @@ npm run build
 * Add [elm-hot-loader](https://github.com/fluxxu/elm-hot-loader) for HMR support (PR by [fluxxu](https://github.com/fluxxu))
 
 **Ver 0.3.0**
-* Use *html-webpack-plugin* to generate *index.html*
-* Unique hash filenames for bundled JS and CSS (prevents caching)
-* Image and favicon assets copied to *dist/*
+* Use `html-webpack-plugin` to generate `index.html`
+* Apply hash filenames for bundled JS and CSS (prevents caching)
+* Image and favicon assets copied to `dist/`
