@@ -4,7 +4,7 @@
     "repository": "https://github.com/moarwick/elm-webpack-starter.git",
     "license": "MIT",
     "source-directories": [
-        "src"
+        "src/elm"
     ],
     "exposed-modules": [],
     "dependencies": {
