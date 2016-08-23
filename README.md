@@ -11,10 +11,19 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 
 
 ### Install:
+Clone this repo into a new project folder, e.g. `my-elm-project`, and install its dependencies:
 ```
-git clone https://github.com/moarwick/elm-webpack-starter
-cd elm-webpack-starter
+git clone https://github.com/moarwick/elm-webpack-starter my-elm-project
+cd my-elm-project
 npm install
+```
+
+Re-initialize the project folder as your own repo:
+```
+rm -rf .git
+git init
+git add .
+git commit -m 'first commit'
 ```
 
 If you haven't done so yet, install Elm globally:
@@ -32,7 +41,7 @@ elm package install
 npm start
 ```
 * Access app at `http://localhost:8080/`
-* Get coding! The entry point file is `src/Main.elm`
+* Get coding! The entry point file is `src/elm/Main.elm`
 * Browser will refresh automatically on any file changes..
 
 
@@ -46,6 +55,12 @@ npm run build
 
 
 ### Changelog
+
+**Ver 0.7.0**
+* Modify project structure, per (Issue 26)(https://github.com/moarwick/elm-webpack-starter/issues/26)
+* Include Bootstrap JS, per (Issue 28)(https://github.com/moarwick/elm-webpack-starter/issues/28)
+* More helpful install steps in README, per (Issue 29)(https://github.com/moarwick/elm-webpack-starter/issues/29)
+* Update to latest packages
 
 **Ver 0.6.2**
 * Use `copy-webpack-plugin` instead of `cp` to copy files (Windows compatible)
