@@ -117,7 +117,7 @@ if ( TARGET_ENV === 'production' ) {
           to:   'static/img/'
         },
         {
-          from: 'src/static/favicon.ico'
+          from: 'src/favicon.ico'
         },
       ]),
 
