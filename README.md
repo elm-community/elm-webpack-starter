@@ -57,7 +57,7 @@ npm run build
 ### Changelog
 
 **Ver 0.7.1**
-* Change favicon issues, per [Issue 30](https://github.com/moarwick/elm-webpack-starter/issues/30)
+* Fix favicon issues, per [Issue 30](https://github.com/moarwick/elm-webpack-starter/issues/30)
 
 **Ver 0.7.0**
 * Modify project structure, per [Issue 26](https://github.com/moarwick/elm-webpack-starter/issues/26)
