@@ -10,14 +10,14 @@ import Components.Hello exposing ( hello )
 -- APP
 main : Program Never
 main =
-  Html.beginnerProgram { model = model, view = view, update = update }
+  Html.beginnerProgram { model = initialModel, view = view, update = update }
 
 
 -- MODEL
 type alias Model = Int
 
-model : number
-model = 0
+initialModel : number
+initialModel = 0
 
 
 -- UPDATE
