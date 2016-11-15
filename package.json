@@ -16,8 +16,8 @@
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "bootstrap-sass": "^3.3.6",
-    "copy-webpack-plugin": "^3.0.1",
-    "css-loader": "^0.23.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.25.0",
     "elm": "^0.18.0",
     "elm-hot-loader": "^0.4.0",
     "elm-webpack-loader": "^3.0.6",
@@ -26,13 +26,13 @@
     "html-webpack-plugin": "^2.17.0",
     "jquery": "^3.1.0",
     "node-sass": "^3.7.0",
-    "postcss-loader": "^0.10.1",
+    "postcss-loader": "^1.1.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.16.0"
   }
 }
