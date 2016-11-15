@@ -56,6 +56,9 @@ npm run build
 
 ### Changelog
 
+**Ver 0.8.0**
+* Updated to Elm 0.18. Using `debug=true` on webpack loader.
+
 **Ver 0.7.1**
 * Fix favicon issues, per [Issue 30](https://github.com/moarwick/elm-webpack-starter/issues/30)
 
