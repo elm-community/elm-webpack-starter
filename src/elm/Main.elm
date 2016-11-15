@@ -1,6 +1,5 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.App as Html
 import Html.Events exposing ( onClick )
 
 -- component import example
@@ -8,7 +7,7 @@ import Components.Hello exposing ( hello )
 
 
 -- APP
-main : Program Never
+main : Program Never Int Msg
 main =
   Html.beginnerProgram { model = model, view = view, update = update }
 
@@ -44,7 +43,7 @@ view model =
           , p [] [ text ( "Elm Webpack Starter" ) ]
           , button [ class "btn btn-primary btn-lg", onClick Increment ] [                  -- click handler
             span[ class "glyphicon glyphicon-star" ][]                                      -- glyphicon
-            , span[][ text "FTW!" ]
+            , span[][ text "FTWWWWWWWWW!" ]
           ]
         ]
       ]
