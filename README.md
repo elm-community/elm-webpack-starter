@@ -11,11 +11,10 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 
 
 ### Install:
-Clone this repo into a new project folder, e.g. `my-elm-project`, and install its dependencies:
+Clone this repo into a new project folder, e.g. `my-elm-project`:
 ```
 git clone https://github.com/moarwick/elm-webpack-starter my-elm-project
 cd my-elm-project
-npm install
 ```
 
 Re-initialize the project folder as your own repo:
@@ -26,15 +25,12 @@ git add .
 git commit -m 'first commit'
 ```
 
-If you haven't done so yet, install Elm globally:
+Install all dependencies using the handy `reinstall` script:
 ```
-npm install -g elm
+npm run reinstall
 ```
+*This does a clean (re)install of all npm and elm packages, plus a global elm install.*
 
-Install Elm's dependencies:
-```
-elm package install
-```
 
 ### Serve locally:
 ```
@@ -55,6 +51,11 @@ npm run build
 
 
 ### Changelog
+
+**Ver 0.8.0**
+* Update to Elm 0.18, use `debug=true` on webpack loader (PR by [douglascorrea](https://github.com/moarwick/elm-webpack-starter/pull/33))
+* Add a script for one-step installs
+* Update to latest packages
 
 **Ver 0.7.1**
 * Fix favicon issues, per [Issue 30](https://github.com/moarwick/elm-webpack-starter/issues/30)
