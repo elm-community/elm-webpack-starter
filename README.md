@@ -6,7 +6,7 @@ A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
 * Support for CSS/SCSS (with Autoprefixer), image assets
 * Bootstrap 3.3+ (Sass version)
 * Bundling and minification for deployment
-* Basic app scaffold, using `Html.App`
+* Basic app scaffold, using `Html.beginnerProgram`
 * A snippet of example code to get you started!
 
 
