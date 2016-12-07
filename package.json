@@ -1,7 +1,7 @@
 {
   "name": "elm-webpack-starter",
   "description": "Webpack setup for writing Elm apps",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "license": "MIT",
   "author": "Peter Morawiec",
   "repository": {
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "webpack-dev-server --hot --inline --content-base src/",
     "build": "rimraf dist && webpack",
-    "reinstall": "rimraf node_modules && npm uninstall -g elm && npm i -g elm && npm i && elm package install"
+    "reinstall": "npm i rimraf && rimraf node_modules && npm uninstall -g elm && npm i -g elm && npm i && elm package install"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
