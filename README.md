@@ -19,7 +19,7 @@ cd my-elm-project
 
 Re-initialize the project folder as your own repo:
 ```
-rm -rf .git
+rm -rf .git         # on Windows: rmdir .git /s /q
 git init
 git add .
 git commit -m 'first commit'
