@@ -52,6 +52,9 @@ npm run build
 
 ### Changelog
 
+**Ver 0.8.2**
+* Webpack config improvements (PR by [Lesuk](https://github.com/moarwick/elm-webpack-starter/pull/39))
+
 **Ver 0.8.0**
 * Update to Elm 0.18, use `debug=true` on webpack loader (PR by [douglascorrea](https://github.com/moarwick/elm-webpack-starter/pull/33))
 * Add a script for one-step installs
