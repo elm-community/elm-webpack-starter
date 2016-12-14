@@ -5,23 +5,26 @@ var HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 var autoprefixer      = require( 'autoprefixer' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 var CopyWebpackPlugin = require( 'copy-webpack-plugin' );
+var entryPath         = path.join( __dirname, 'src/static/index.js' );
+var outputPath        = path.join( __dirname, 'dist' );
 
 console.log( 'WEBPACK GO!');
 
-// detemine build env
+// determine build env
 var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? 'production' : 'development';
+var outputFilename = TARGET_ENV == 'production' ? '[name]-[hash].js' : '[name].js'
 
 // common webpack config
 var commonConfig = {
 
   output: {
-    path:       path.resolve( __dirname, 'dist/' ),
-    filename: '[hash].js',
+    path:       outputPath,
+    filename:   path.join( 'static/js/', outputFilename ),
+    publicPath: '/'
   },
 
   resolve: {
-    modulesDirectories: ['node_modules'],
-    extensions:         ['', '.js', '.elm']
+    extensions: ['', '.js', '.elm']
   },
 
   module: {
@@ -54,12 +57,12 @@ if ( TARGET_ENV === 'development' ) {
 
     entry: [
       'webpack-dev-server/client?http://localhost:8080',
-      path.join( __dirname, 'src/static/index.js' )
+      entryPath
     ],
 
     devServer: {
-      inline:   true,
-      progress: true
+      // serve index.html in place of 404 responses
+      historyApiFallback: true,
     },
 
     module: {
@@ -90,7 +93,7 @@ if ( TARGET_ENV === 'production' ) {
 
   module.exports = merge( commonConfig, {
 
-    entry: path.join( __dirname, 'src/static/index.js' ),
+    entry: entryPath,
 
     module: {
       loaders: [
@@ -124,7 +127,7 @@ if ( TARGET_ENV === 'production' ) {
       new webpack.optimize.OccurenceOrderPlugin(),
 
       // extract CSS into a separate file
-      new ExtractTextPlugin( './[hash].css', { allChunks: true } ),
+      new ExtractTextPlugin( 'static/css/[name]-[hash].css', { allChunks: true } ),
 
       // minify & mangle JS/CSS
       new webpack.optimize.UglifyJsPlugin({
