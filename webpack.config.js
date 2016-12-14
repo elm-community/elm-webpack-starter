@@ -12,7 +12,7 @@ console.log( 'WEBPACK GO!');
 
 // determine build env
 var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? 'production' : 'development';
-var outputFilename = TARGET_ENV == 'production' ? '[name]-[hash].js' : '[name].js'
+var outputFilename = TARGET_ENV === 'production' ? '[name]-[hash].js' : '[name].js'
 
 // common webpack config
 var commonConfig = {
