@@ -52,6 +52,10 @@ npm run build
 
 ### Changelog
 
+**Ver 0.8.3**
+* Update packages
+* Attempt to fix path issues when building for prod (temp)
+
 **Ver 0.8.2**
 * Webpack config improvements (PR by [Lesuk](https://github.com/moarwick/elm-webpack-starter/pull/39))
 
