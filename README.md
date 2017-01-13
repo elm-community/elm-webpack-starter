@@ -52,6 +52,9 @@ npm run build
 
 ### Changelog
 
+**Ver 0.8.4**
+* Fix hot reloading of components, per [Issue 44](https://github.com/moarwick/elm-webpack-starter/issues/44)
+
 **Ver 0.8.3**
 * Update packages
 * Attempt to fix path issues when building for prod (temp)
