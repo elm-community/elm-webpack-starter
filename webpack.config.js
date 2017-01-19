@@ -19,7 +19,7 @@ var commonConfig = {
 
   output: {
     path:       outputPath,
-    filename: `static/js/${outputFilename}`,
+    filename: `/static/js/${outputFilename}`,
     // publicPath: '/'
   },
 
