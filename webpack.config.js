@@ -19,7 +19,7 @@ var commonConfig = {
 
   output: {
     path:       outputPath,
-    filename:   path.join( 'static/js/', outputFilename ),
+    filename: `static/js/${outputFilename}`,
     // publicPath: '/'
   },
 
@@ -63,6 +63,7 @@ if ( TARGET_ENV === 'development' ) {
     devServer: {
       // serve index.html in place of 404 responses
       historyApiFallback: true,
+      contentBase: './src',
     },
 
     module: {
