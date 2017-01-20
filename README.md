@@ -56,6 +56,9 @@ npm run build
 
 ### Changelog
 
+**Ver 0.8.5**
+* Fix loading path of generated js file, per [Issue 47](https://github.com/moarwick/elm-webpack-starter/issues/47)
+
 **Ver 0.8.4**
 * Fix hot reloading of components, per [Issue 44](https://github.com/moarwick/elm-webpack-starter/issues/44)
 
