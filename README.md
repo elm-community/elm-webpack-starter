@@ -1,7 +1,5 @@
 # elm-webpack-starter
 
-### Call for maintainers:
-Thanks for using this project! Unfortunately, I am not an Elm developer and I'm unable to continue actively maintaining this repo. Thus, I'm looking for maintainers and welcome PRs as issues emerge! When submitting a PR, please update the README as well, including the Changelog section. Thanks! :)
 
 ### About:
 A simple Webpack setup for writing [Elm](http://elm-lang.org/) apps:
