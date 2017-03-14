@@ -19,20 +19,20 @@ var commonConfig = {
 
   output: {
     path:       outputPath,
-    filename: `/static/js/${outputFilename}`,
-    // publicPath: '/'
+    filename:   `static/js/${outputFilename}`,
+    publicPath: '/'
   },
 
   resolve: {
-    extensions: ['', '.js', '.elm']
+    extensions: ['.js', '.elm']
   },
 
   module: {
     noParse: /\.elm$/,
-    loaders: [
+    rules: [
       {
         test: /\.(eot|ttf|woff|woff2|svg)$/,
-        loader: 'file-loader'
+        use:  'file-loader'
       }
     ]
   },
@@ -44,8 +44,6 @@ var commonConfig = {
       filename: 'index.html'
     })
   ],
-
-  postcss: [ autoprefixer( { browsers: ['last 2 versions'] } ) ],
 
 }
 
@@ -67,15 +65,15 @@ if ( TARGET_ENV === 'development' ) {
     },
 
     module: {
-      loaders: [
+      rules: [
         {
           test:    /\.elm$/,
           exclude: [/elm-stuff/, /node_modules/],
-          loader:  'elm-hot!elm-webpack?verbose=true&warn=true&debug=true'
+          loader:  'elm-hot-loader!elm-webpack-loader?verbose=true&warn=true&debug=true'
         },
         {
           test: /\.(css|scss)$/,
-          loaders: [
+          use: [
             'style-loader',
             'css-loader',
             'postcss-loader',
@@ -97,19 +95,24 @@ if ( TARGET_ENV === 'production' ) {
     entry: entryPath,
 
     module: {
-      loaders: [
+      rules: [
         {
           test:    /\.elm$/,
           exclude: [/elm-stuff/, /node_modules/],
-          loader:  'elm-webpack'
+          use:     'elm-webpack-loader'
         },
         {
           test: /\.(css|scss)$/,
-          loader: ExtractTextPlugin.extract( 'style-loader', [
-            'css-loader',
-            'postcss-loader',
-            'sass-loader'
-          ])
+          use: ExtractTextPlugin.extract(
+            {
+              fallback: "style-loader",
+              use: [
+                'css-loader',
+                'postcss-loader',
+                'sass-loader'
+              ],
+              allChunks: true
+            })
         }
       ]
     },
@@ -125,10 +128,10 @@ if ( TARGET_ENV === 'production' ) {
         },
       ]),
 
-      new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
 
       // extract CSS into a separate file
-      new ExtractTextPlugin( 'static/css/[name]-[hash].css', { allChunks: true } ),
+      new ExtractTextPlugin( 'static/css/[name]-[hash].css'),
 
       // minify & mangle JS/CSS
       new webpack.optimize.UglifyJsPlugin({
