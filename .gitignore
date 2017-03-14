@@ -2,12 +2,3 @@ elm-stuff/
 node_modules/
 tmp/
 dist/
-
-#IDE configuration files
-.idea
-.vscode
-*.iml
-
-# OS X trash files
-.DS_Store
-Thumbs.db
