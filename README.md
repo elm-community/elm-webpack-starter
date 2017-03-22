@@ -27,11 +27,10 @@ git add .
 git commit -m 'first commit'
 ```
 
-Install all dependencies using the handy `reinstall` script:
+Install all npm and elm dependencies:
 ```
-npm run reinstall
+npm install
 ```
-*This does a clean (re)install of all npm and elm packages, plus a global elm install.*
 
 
 ### Serve locally:
