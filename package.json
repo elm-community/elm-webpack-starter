@@ -1,7 +1,7 @@
 {
   "name": "elm-webpack-starter",
   "description": "Webpack setup for writing Elm apps",
-  "version": "0.8.4",
+  "version": "0.8.6",
   "license": "MIT",
   "author": "Peter Morawiec",
   "repository": {
