@@ -11,42 +11,22 @@ const prod = 'production';
 const dev = 'development';
 
 // determine build env
-var TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? prod : dev;
-var isDev = TARGET_ENV == dev;
-var isProd = TARGET_ENV == prod;
+const TARGET_ENV = process.env.npm_lifecycle_event === 'build' ? prod : dev;
+const isDev = TARGET_ENV == dev;
+const isProd = TARGET_ENV == prod;
 
-// set entry and output path/filename
-var entryPath = path.join(__dirname, 'src/static/index.js');
-var outputPath = path.join(__dirname, 'dist');
-var outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
+// entry and output path/filename variables
+const entryPath = path.join(__dirname, 'src/static/index.js');
+const outputPath = path.join(__dirname, 'dist');
+const outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
 
 console.log('WEBPACK GO! Building for ' + TARGET_ENV);
 
-// var styleLoaders = [{
-//     loader: 'css-loader',
-//     options: {
-//         modules: true,
-//         sourceMap: isDev,
-//         //localIdentName: isProd ? '[name]-[hash].css' : '[name].css'
-//     }
-// }, {
-//     loader: 'postcss-loader'
-// }, {
-//     loader: 'sass-loader',
-//     options: {
-//         modules: true,
-//         sourceMap: isDev,
-//         includePaths: ['node_modules']
-//     }
-// }]
-
 // common webpack config (valid for dev and prod)
-
 var commonConfig = {
     output: {
         path: outputPath,
         filename: `static/js/${outputFilename}`,
-        // publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.elm'],
@@ -117,7 +97,6 @@ if (isProd === true) {
                 use: 'elm-webpack-loader'
             }]
         },
-
         plugins: [
             new CopyWebpackPlugin([{
                 from: 'src/static/img/',
@@ -127,8 +106,7 @@ if (isProd === true) {
             }]),
 
             // extract CSS into a separate file
-            //
-            // // minify & mangle JS/CSS
+            // minify & mangle JS/CSS
             new webpack.optimize.UglifyJsPlugin({
                 minimize: true,
                 compressor: {
@@ -137,6 +115,5 @@ if (isProd === true) {
                 // mangle:  true
             })
         ]
-
     });
 }
