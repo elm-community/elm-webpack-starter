@@ -37,19 +37,9 @@ var commonConfig = {
         rules: [{
             test: /\.(eot|ttf|woff|woff2|svg)$/,
             use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
-        }, {
-            test: /\.sc?ss$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'postcss-loader', 'sass-loader']
-            })
         }]
     },
     plugins: [
-        new ExtractTextPlugin({
-            filename: 'static/css/[name]-[hash].css',
-            allChunks: true,
-        }),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [autoprefixer()]
@@ -80,7 +70,17 @@ if (isDev === true) {
             rules: [{
                 test: /\.elm$/,
                 exclude: [/elm-stuff/, /node_modules/],
-                use: 'elm-webpack-loader?verbose=true&warn=true&debug=true'
+                use: [{
+                    loader: 'elm-webpack-loader',
+                    options: {
+                        verbose: true,
+                        warn: true,
+                        debug: true
+                    }
+                }]
+            },{
+                test: /\.sc?ss$/,
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             }]
         }
     });
@@ -95,9 +95,19 @@ if (isProd === true) {
                 test: /\.elm$/,
                 exclude: [/elm-stuff/, /node_modules/],
                 use: 'elm-webpack-loader'
+            }, {
+                test: /\.sc?ss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'sass-loader']
+                })
             }]
         },
         plugins: [
+            new ExtractTextPlugin({
+                filename: 'static/css/[name]-[hash].css',
+                allChunks: true,
+            }),
             new CopyWebpackPlugin([{
                 from: 'src/static/img/',
                 to: 'static/img/'
