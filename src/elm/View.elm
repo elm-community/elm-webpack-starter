@@ -2,10 +2,10 @@ module View exposing (..)
 
 import Html exposing (Html, div, img, p, button, span, text)
 import Html.Attributes exposing (..)
-import Html.Events exposing ( onClick )
+import Html.Events exposing (onClick)
 import Models exposing (Model)
 import Msgs exposing (Msg)
-import Components.Hello exposing ( hello )
+import Components.Hello exposing (hello)
 
 -- VIEW
 -- Html is defined as: elem [ attribs ][ children ]
