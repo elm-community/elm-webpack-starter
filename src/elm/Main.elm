@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (beginnerProgram)
-import Models exposing (Model, initialModel)
+import Models exposing (Model, model)
 import Msgs exposing (Msg)
 import Update exposing (update)
 import View exposing (view)
@@ -13,4 +13,4 @@ import Components.Hello exposing ( hello )
 -- APP
 main : Program Never Int Msg
 main =
-  Html.beginnerProgram { model = initialModel, view = view, update = update }
+  Html.beginnerProgram { model = model, view = view, update = update }

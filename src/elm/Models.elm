@@ -3,6 +3,6 @@ module Models exposing (..)
 -- MODEL
 type alias Model = Int
 
-initialModel : number
-initialModel =
+model : number
+model =
     0
