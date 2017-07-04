@@ -54,6 +54,11 @@ npm run build
 
 ### Changelog
 
+**Ver 0.8.6**
+* Update Packages (-> Webpack 2)
+* fix paths in file-loader
+* clean up build script
+
 **Ver 0.8.5**
 * Fix loading path of generated js file, per [Issue 47](https://github.com/moarwick/elm-webpack-starter/issues/47)
 
