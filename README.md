@@ -54,7 +54,7 @@ npm run build
 
 ### Changelog
 
-**Ver 0.8.6**
+**Ver 0.8.7**
 * add dependency to "loglevel", needed by webpack(-dev-server)
 
 **Ver 0.8.6**
