@@ -8,7 +8,7 @@ import Components.Hello exposing ( hello )
 
 
 -- APP
-main : Program Never Int Msg
+main : Program Never Model Msg
 main =
   Html.beginnerProgram { model = model, view = view, update = update }
 
@@ -16,7 +16,7 @@ main =
 -- MODEL
 type alias Model = Int
 
-model : number
+model : Model
 model = 0
 
 
