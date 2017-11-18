@@ -40,11 +40,6 @@ var commonConfig = {
         }]
     },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: [autoprefixer()]
-            }
-        }),
         new HtmlWebpackPlugin({
             template: 'src/static/index.html',
             inject: 'body',
