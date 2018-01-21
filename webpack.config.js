@@ -104,6 +104,7 @@ if (isProd === true) {
             }]
         },
         plugins: [
+            // extract CSS into a separate file
             new ExtractTextPlugin({
                 filename: 'static/css/[name]-[hash].css',
                 allChunks: true,
@@ -115,15 +116,8 @@ if (isProd === true) {
                 from: 'src/favicon.ico'
             }]),
 
-            // extract CSS into a separate file
-            // minify & mangle JS/CSS
-            new webpack.optimize.UglifyJsPlugin({
-                minimize: true,
-                compressor: {
-                    warnings: false
-                }
-                // mangle:  true
-            })
+            // minify JS
+            new webpack.optimize.UglifyJsPlugin()
         ]
     });
 }
