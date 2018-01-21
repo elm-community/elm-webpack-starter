@@ -27,6 +27,8 @@ const extractCSS = new ExtractTextPlugin({
     disable: isDev === true
 });
 
+const elmLoaderOptions = isDev ? { verbose: true, warn: true, debug: true } : {}
+
 console.log('WEBPACK GO! Building for ' + TARGET_ENV);
 
 // common webpack config (valid for dev and prod)
@@ -42,6 +44,14 @@ const commonConfig = {
     module: {
         noParse: /\.elm$/,
         rules: [
+            {
+                test: /\.elm$/,
+                exclude: [/elm-stuff/, /node_modules/],
+                use: [{
+                    loader: 'elm-webpack-loader',
+                    options: elmLoaderOptions
+                }]
+            },
             {
                 test: /\.(eot|ttf|woff|woff2|svg)$/,
                 use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
@@ -92,20 +102,6 @@ if (isDev === true) {
             historyApiFallback: true,
             contentBase: './src',
             hot: true
-        },
-        module: {
-            rules: [{
-                test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
-                use: [{
-                    loader: 'elm-webpack-loader',
-                    options: {
-                        verbose: true,
-                        warn: true,
-                        debug: true
-                    }
-                }]
-            }]
         }
     });
 }
@@ -114,13 +110,7 @@ if (isDev === true) {
 if (isProd === true) {
     module.exports = merge(commonConfig, {
         entry: entryPath,
-        module: {
-            rules: [{
-                test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
-                use: 'elm-webpack-loader'
-            }]
-        },
+
         plugins: [
             new CopyWebpackPlugin([{
                 from: 'src/static/img/',
