@@ -20,6 +20,13 @@ const entryPath = path.join(__dirname, 'src/static/index.js');
 const outputPath = path.join(__dirname, 'dist');
 const outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
 
+// extract css into file
+const extractCSS = new ExtractTextPlugin({
+    filename: "static/css/[name]-[contenthash].css",
+    allChunks: true,
+    disable: isDev === true
+});
+
 console.log('WEBPACK GO! Building for ' + TARGET_ENV);
 
 // common webpack config (valid for dev and prod)
@@ -34,10 +41,27 @@ const commonConfig = {
     },
     module: {
         noParse: /\.elm$/,
-        rules: [{
-            test: /\.(eot|ttf|woff|woff2|svg)$/,
-            use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
-        }]
+        rules: [
+            {
+                test: /\.(eot|ttf|woff|woff2|svg)$/,
+                use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
+            },
+            {
+                test: /\.sc?ss$/,
+                use: extractCSS.extract({
+                    // Adds CSS to the DOM by injecting a <style> tag
+                    fallback: 'style-loader',
+                    use: [
+                        // interprets @import and url() like import/require() and will resolve them.
+                        { loader: 'css-loader', options: { minimize: true } },
+                        // process CSS with PostCSS
+                        'postcss-loader',
+                        // compiles Sass to CSS
+                        'sass-loader'
+                    ]
+                })
+            }
+        ]
     },
     plugins: [
         new webpack.LoaderOptionsPlugin({
@@ -45,11 +69,14 @@ const commonConfig = {
                 postcss: [autoprefixer()]
             }
         }),
+
         new HtmlWebpackPlugin({
             template: 'src/static/index.html',
             inject: 'body',
             filename: 'index.html'
-        })
+        }),
+
+        extractCSS
     ]
 }
 
@@ -78,9 +105,6 @@ if (isDev === true) {
                         debug: true
                     }
                 }]
-            },{
-                test: /\.sc?ss$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             }]
         }
     });
@@ -95,20 +119,9 @@ if (isProd === true) {
                 test: /\.elm$/,
                 exclude: [/elm-stuff/, /node_modules/],
                 use: 'elm-webpack-loader'
-            }, {
-                test: /\.sc?ss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'postcss-loader', 'sass-loader']
-                })
             }]
         },
         plugins: [
-            // extract CSS into a separate file
-            new ExtractTextPlugin({
-                filename: 'static/css/[name]-[hash].css',
-                allChunks: true,
-            }),
             new CopyWebpackPlugin([{
                 from: 'src/static/img/',
                 to: 'static/img/'
