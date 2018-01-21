@@ -1,10 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const prod = 'production';
@@ -23,7 +23,7 @@ const outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
 console.log('WEBPACK GO! Building for ' + TARGET_ENV);
 
 // common webpack config (valid for dev and prod)
-var commonConfig = {
+const commonConfig = {
     output: {
         path: outputPath,
         filename: `static/js/${outputFilename}`,
