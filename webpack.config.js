@@ -1,10 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const prod = 'production';
@@ -20,10 +20,19 @@ const entryPath = path.join(__dirname, 'src/static/index.js');
 const outputPath = path.join(__dirname, 'dist');
 const outputFilename = isProd ? '[name]-[hash].js' : '[name].js'
 
+// extract css into file
+const extractCSS = new ExtractTextPlugin({
+    filename: "static/css/[name]-[contenthash].css",
+    allChunks: true,
+    disable: isDev === true
+});
+
+const elmLoaderOptions = isDev ? { verbose: true, warn: true, debug: true } : {}
+
 console.log('WEBPACK GO! Building for ' + TARGET_ENV);
 
 // common webpack config (valid for dev and prod)
-var commonConfig = {
+const commonConfig = {
     output: {
         path: outputPath,
         filename: `static/js/${outputFilename}`,
@@ -34,10 +43,35 @@ var commonConfig = {
     },
     module: {
         noParse: /\.elm$/,
-        rules: [{
-            test: /\.(eot|ttf|woff|woff2|svg)$/,
-            use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
-        }]
+        rules: [
+            {
+                test: /\.elm$/,
+                exclude: [/elm-stuff/, /node_modules/],
+                use: [{
+                    loader: 'elm-webpack-loader',
+                    options: elmLoaderOptions
+                }]
+            },
+            {
+                test: /\.(eot|ttf|woff|woff2|svg)$/,
+                use: 'file-loader?publicPath=../../&name=static/css/[hash].[ext]'
+            },
+            {
+                test: /\.sc?ss$/,
+                use: extractCSS.extract({
+                    // Adds CSS to the DOM by injecting a <style> tag
+                    fallback: 'style-loader',
+                    use: [
+                        // interprets @import and url() like import/require() and will resolve them.
+                        { loader: 'css-loader', options: { minimize: isProd === true } },
+                        // process CSS with PostCSS
+                        'postcss-loader',
+                        // compiles Sass to CSS
+                        'sass-loader'
+                    ]
+                })
+            }
+        ]
     },
     plugins: [
         new webpack.LoaderOptionsPlugin({
@@ -45,11 +79,14 @@ var commonConfig = {
                 postcss: [autoprefixer()]
             }
         }),
+
         new HtmlWebpackPlugin({
             template: 'src/static/index.html',
             inject: 'body',
             filename: 'index.html'
-        })
+        }),
+
+        extractCSS
     ]
 }
 
@@ -65,23 +102,6 @@ if (isDev === true) {
             historyApiFallback: true,
             contentBase: './src',
             hot: true
-        },
-        module: {
-            rules: [{
-                test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
-                use: [{
-                    loader: 'elm-webpack-loader',
-                    options: {
-                        verbose: true,
-                        warn: true,
-                        debug: true
-                    }
-                }]
-            },{
-                test: /\.sc?ss$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-            }]
         }
     });
 }
@@ -90,24 +110,8 @@ if (isDev === true) {
 if (isProd === true) {
     module.exports = merge(commonConfig, {
         entry: entryPath,
-        module: {
-            rules: [{
-                test: /\.elm$/,
-                exclude: [/elm-stuff/, /node_modules/],
-                use: 'elm-webpack-loader'
-            }, {
-                test: /\.sc?ss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'postcss-loader', 'sass-loader']
-                })
-            }]
-        },
+
         plugins: [
-            new ExtractTextPlugin({
-                filename: 'static/css/[name]-[hash].css',
-                allChunks: true,
-            }),
             new CopyWebpackPlugin([{
                 from: 'src/static/img/',
                 to: 'static/img/'
@@ -115,15 +119,8 @@ if (isProd === true) {
                 from: 'src/favicon.ico'
             }]),
 
-            // extract CSS into a separate file
-            // minify & mangle JS/CSS
-            new webpack.optimize.UglifyJsPlugin({
-                minimize: true,
-                compressor: {
-                    warnings: false
-                }
-                // mangle:  true
-            })
+            // minify JS
+            new webpack.optimize.UglifyJsPlugin()
         ]
     });
 }
