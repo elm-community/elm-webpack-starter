@@ -5,6 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 
 const prod = 'production';
@@ -74,7 +75,6 @@ if (isDev === true) {
                     loader: 'elm-webpack-loader',
                     options: {
                         verbose: true,
-                        warn: true,
                         debug: true
                     }
                 }]
@@ -113,17 +113,12 @@ if (isProd === true) {
                 to: 'static/img/'
             }, {
                 from: 'src/favicon.ico'
-            }]),
-
-            // extract CSS into a separate file
-            // minify & mangle JS/CSS
-            new webpack.optimize.UglifyJsPlugin({
-                minimize: true,
-                compressor: {
-                    warnings: false
-                }
-                // mangle:  true
-            })
-        ]
+            }])
+        ],
+        optimization: {
+            minimizer: [
+                new UglifyJsPlugin()
+            ]
+        }
     });
 }
