@@ -74,7 +74,6 @@ if (isDev === true) {
                     loader: 'elm-webpack-loader',
                     options: {
                         verbose: true,
-                        warn: true,
                         debug: true
                     }
                 }]
